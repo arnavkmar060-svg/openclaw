@@ -22,8 +22,7 @@ class MoltbookClient:
         Initialize Moltbook client
         
         Args:
-            api_key: Moltbook API key. If None, will try to load from:
-                     1. MOLTBOOK_API_KEY environment variable
+            api_key: Moltbook API key. If None, will tr                     1. MOLTBOOK_API_KEY environment variable
                      2. ~/.config/moltbook/credentials.json
         """
         self.api_key = api_key or self._load_api_key()
@@ -342,80 +341,6 @@ class MoltbookClient:
             params={"q": query, "type": search_type, "limit": limit}
         )
         return self._handle_response(response)
-    
-    # ==================== CLAWNCH SKILL ====================
-    
-    def get_clawnch_skill(self) -> Dict[str, Any]:
-        """
-        Fetch the Clawnch skill for memecoin deployment
-        
-        Returns:
-            Clawnch skill information and deployment templates
-        """
-        try:
-            # Simulate fetching Clawnch skill (in production, this would call an actual API)
-            return {
-                "success": True,
-                "skill": {
-                    "name": "Clawnch",
-                    "version": "1.0.0",
-                    "description": "Deploy meme tokens with AI-driven proposals",
-                    "capabilities": [
-                        "Propose new meme tokens based on trends",
-                        "Generate token metadata (name, ticker, description)",
-                        "Create deployment proposals",
-                        "Track token performance"
-                    ],
-                    "api_endpoint": "https://api.clawnch.io/v1"
-                }
-            }
-        except Exception as e:
-            return {"success": False, "error": str(e)}
-    
-    def propose_meme_token(self, ticker: str, name: str, 
-                          description: str, trend_context: str = "") -> Dict[str, Any]:
-        """
-        Propose a new meme token based on Clawnch protocol
-        
-        Args:
-            ticker: Token ticker symbol (e.g., "PEPE", "DOGE")
-            name: Full token name
-            description: Token description and use case
-            trend_context: Context from trend analysis
-        
-        Returns:
-            Token proposal details
-        """
-        proposal = {
-            "success": True,
-            "proposal": {
-                "ticker": ticker.upper(),
-                "name": name,
-                "description": description,
-                "trend_context": trend_context,
-                "timestamp": datetime.now().isoformat(),
-                "initial_supply": 1_000_000_000,  # 1B tokens
-                "decimals": 18,
-                "deployment_ready": True,
-                "estimated_gas_fees": "0.01 ETH"
-            }
-        }
-        
-        return proposal
-    
-    def deploy_token_via_bankr(self, ticker: str, twitter_handle: str) -> str:
-        """
-        Generate Bankr deployment tweet format
-        
-        Args:
-            ticker: Token ticker symbol
-            twitter_handle: Your Twitter handle for fee receiving
-        
-        Returns:
-            Formatted tweet content for Bankr deployment
-        """
-        tweet = f"@bankr deploy this token with the ticker ${ticker}. Send the fees to {twitter_handle}."
-        return tweet
 
 
 class Web3QuestionAnswerer:
