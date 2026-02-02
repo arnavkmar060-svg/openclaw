@@ -68,7 +68,25 @@ export function handleMessageUpdate(
     return;
   }
 
-  const delta = typeof assistantRecord?.delta === "string" ? assistantRecord.delta : "";
+  // Extract delta - handle both direct delta format and Gemini's choices[0].delta.content format
+  let delta = typeof assistantRecord?.delta === "string" ? assistantRecord.delta : "";
+
+  // If delta is not a string, check for Gemini/OpenRouter format: choices[0].delta.content
+  if (!delta && assistantRecord?.choices && Array.isArray(assistantRecord.choices)) {
+    const firstChoice = assistantRecord.choices[0] as Record<string, unknown> | undefined;
+    if (firstChoice && typeof firstChoice.delta === "object" && firstChoice.delta) {
+      const deltaObj = firstChoice.delta as Record<string, unknown>;
+      if (typeof deltaObj.content === "string") {
+        delta = deltaObj.content;
+      }
+    }
+  }
+
+  // Filter out OpenRouter heartbeats (lines starting with ':')
+  if (delta && delta.startsWith(":")) {
+    return;
+  }
+
   const content = typeof assistantRecord?.content === "string" ? assistantRecord.content : "";
 
   appendRawStream({
