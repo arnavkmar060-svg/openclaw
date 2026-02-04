@@ -1,0 +1,101 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                     🚀 QUICK TOKEN SWAP GUIDE 🚀                          ║
+║                    (Takes only 30 seconds!)                               ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+📝 STEP 1: Open the script
+─────────────────────────────────────────────────────────────────────────────
+
+  nano /root/webapp/dynamic_viral_engine.py
+
+  OR use any text editor you prefer
+
+
+📍 STEP 2: Find lines 27-29 (USER CONFIGURATION section)
+─────────────────────────────────────────────────────────────────────────────
+
+  Look for these lines:
+
+  TOKEN_TICKER = "$AIINU"
+  CONTRACT_ADDRESS = "0x313B7696a8566Ce850c865Dc60b7676F1e797B07"
+  DEX_LINK = f"https://www.clanker.world/clanker/{CONTRACT_ADDRESS}"
+
+
+✏️  STEP 3: Replace with your new token info
+─────────────────────────────────────────────────────────────────────────────
+
+  TOKEN_TICKER = "$YOURNEWTOKEN"           # ← Your token symbol
+  CONTRACT_ADDRESS = "0xYOURNEWADDRESS"    # ← Your contract address
+  DEX_LINK = f"https://dexscreener.com/base/{CONTRACT_ADDRESS}"
+
+
+💾 STEP 4: Save and exit
+─────────────────────────────────────────────────────────────────────────────
+
+  Ctrl+O (save)
+  Ctrl+X (exit)
+
+
+🚀 STEP 5: Run the bot
+─────────────────────────────────────────────────────────────────────────────
+
+  cd /root/webapp
+  python3 dynamic_viral_engine.py
+
+
+✅ DONE! Your new token is now being marketed!
+─────────────────────────────────────────────────────────────────────────────
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                          📊 USEFUL COMMANDS                               ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+  🔍 View bot logs:
+     tail -f /root/webapp/bot_execution.log
+
+  🎨 Test content generation (10 samples):
+     python3 /root/webapp/demo_content_variety.py
+
+  ⏰ Setup auto-posting (every 4 hours):
+     crontab -e
+     Add: 0 */4 * * * cd /root/webapp && python3 dynamic_viral_engine.py
+
+  🛑 Stop auto-posting:
+     crontab -r
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                      💡 PRO TIPS FOR MAX RESULTS                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+  ✓ Post every 4-6 hours (not too frequent, not too rare)
+  ✓ Best times: 06:00, 13:00, 20:00 UTC
+  ✓ Keep DEX_LINK updated for easy tracking
+  ✓ Monitor bot_execution.log for any issues
+  ✓ The bot generates 168,760+ unique posts (months of content!)
+  ✓ No repetition = No spam flags = Better reach
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                      🎯 TARGETING OPTIONS                                 ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+  Want to post to different MoltBook channels?
+  Edit line 34:
+
+  TARGET_SUBMOLT = "crypto"        # Default: general crypto community
+  TARGET_SUBMOLT = "memecoins"     # For meme tokens
+  TARGET_SUBMOLT = "trading"       # For serious traders
+  TARGET_SUBMOLT = "defi"          # For DeFi projects
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+  📖 Full documentation: /root/webapp/VIRAL_ENGINE_GUIDE.md
+  🎥 Content demo: python3 /root/webapp/demo_content_variety.py
+
+═══════════════════════════════════════════════════════════════════════════
+
+                    Made with 💎 by Senior Python Dev
+                     Go viral. Make it rain. 🚀💰
