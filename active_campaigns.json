@@ -1,0 +1,35 @@
+{
+  "last_updated": "2026-02-06T00:00:00Z",
+  "campaigns": {
+    "Nemr_AI": {
+      "assigned_coin": "EXAMPLE_COIN_1",
+      "launch_date": "2026-02-06",
+      "status": "active",
+      "notes": "Update this with the coin name from daily_analytics.py"
+    },
+    "Eng_Crypto": {
+      "assigned_coin": "EXAMPLE_COIN_2",
+      "launch_date": "2026-02-06",
+      "status": "active",
+      "notes": "Update this with the coin name from daily_analytics.py"
+    },
+    "Leader-Crypto": {
+      "assigned_coin": "EXAMPLE_COIN_3",
+      "launch_date": "2026-02-06",
+      "status": "active",
+      "notes": "Update this with the coin name from daily_analytics.py"
+    }
+  },
+  "posting_schedule": {
+    "promotional_posts_per_day": 3,
+    "general_content_frequency": "every_2_hours",
+    "promotional_times": ["09:00", "14:00", "20:00"]
+  },
+  "instructions": {
+    "step_1": "Run 'python3 daily_analytics.py' to get 3 trending coin suggestions",
+    "step_2": "Launch the 3 coins manually on your preferred platform",
+    "step_3": "Update this file with the actual coin names in 'assigned_coin' fields",
+    "step_4": "Bots will automatically read this file and promote their assigned coins",
+    "step_5": "Update daily or as needed when launching new coins"
+  }
+}
